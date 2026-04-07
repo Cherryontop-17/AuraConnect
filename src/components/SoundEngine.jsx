@@ -426,10 +426,22 @@ export default function SoundEngine() {
           if (avg > 12) {
             // Updated thresholds for more natural vocal range binning
             let currentLabel = 'Mid Pitch Voice';
-            if (centroid < 8)       currentLabel = 'Deep Pitch Voice';
-            else if (centroid < 18) currentLabel = 'Mid Pitch Voice';
-            else                    currentLabel = 'High Pitch Voice';
-            
+            //Centroid < 3.5 (~600Hz): Generally matches lower male voices (think Nannas voice)
+            if (centroid < 3.5) {
+              currentLabel = "Deep Pitch Voice";
+            } 
+            //Centroid < 7.5 (~1300Hz) mid-range voices (me when I'm with people I know)
+            else if (centroid < 7.5) {
+              currentLabel = "Mid Pitch Voice";
+            }
+            //Centroid > 7.5: High pitches (think chorus high pitch like child or Amma/female) - me when I'm
+            // with other people idk - if matches S sounds btw
+            else {
+              currentLabel = "High Pitch Voice";
+            }
+            //if (centroid < 8)       currentLabel = 'Deep Pitch Voice';
+            //else if (centroid < 18) currentLabel = 'Mid Pitch Voice';
+            //else                    currentLabel = 'High Pitch Voice';            
             activeSpeakerRef.current = currentLabel;
             speechHistogramRef.current[currentLabel]++;
           }

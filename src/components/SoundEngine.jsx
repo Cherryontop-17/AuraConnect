@@ -420,24 +420,24 @@ export default function SoundEngine() {
           if (!isSpeechRef.current) return;
           analyzer.getByteFrequencyData(buf);
           let sum = 0, numerator = 0;
-          for (let i = 0; i < bufLen; i++) { sum += buf[i]; numerator += buf[i] * i; }
-          const avg = sum / bufLen;
+          // NEW filter - Ignore both background noise and fan noise
+          // Only look at the first 25 frequency bins (the human vocal range)
+          for (let i = 0; i < 25; i++) { sum += buf[i]; numerator += buf[i] * i; }
+          const avg = sum / 25;
           const centroid = sum === 0 ? 0 : numerator / sum;
-          if (avg > 12) {
+          // Only process f the sound is louder than the backgorund noise floor
+          if (avg > 15) {
             // Updated thresholds for more natural vocal range binning
             let currentLabel = 'Mid Pitch Voice';
-            //Centroid < 3.5 (~600Hz): Generally matches lower male voices (think Nannas voice)
-            if (centroid < 3.5) {
-              currentLabel = "Deep Pitch Voice";
+            // Recalibrated - New thresholds for the focused vocal spectrum
+            if (centroid < 4.2) {
+              currentLabel = "Deep Pitch Voice"; // Low/Bass tones (when I'm annoyed/tired)
             } 
-            //Centroid < 7.5 (~1300Hz) mid-range voices (me when I'm with people I know)
-            else if (centroid < 7.5) {
-              currentLabel = "Mid Pitch Voice";
+            else if (centroid < 11) {
+              currentLabel = "Mid Pitch Voice"; // Normal speaking tones (me when I'm with people I know)
             }
-            //Centroid > 7.5: High pitches (think chorus high pitch like child or Amma/female) - me when I'm
-            // with other people idk - if matches S sounds btw
             else {
-              currentLabel = "High Pitch Voice";
+              currentLabel = "High Pitch Voice"; //Higher voice range (me when I'm with people I don't know)
             }
             //if (centroid < 8)       currentLabel = 'Deep Pitch Voice';
             //else if (centroid < 18) currentLabel = 'Mid Pitch Voice';

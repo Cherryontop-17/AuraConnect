@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AuraConnect Software Architecture and Implementation Portfolio</title>
+  <style>
+    body {
+      color: black;
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+    }
+    h1 { font-size: 24pt; text-align: center; margin-top: 50px; }
+    h2 { font-size: 18pt; margin-top: 40px; border-bottom: 2px solid black; padding-bottom: 5px; text-transform: uppercase; }
+    h3 { font-size: 14pt; margin-top: 25px; font-weight: bold; }
+    p { margin-bottom: 12px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid black; padding: 10px; text-align: left; }
+    img { max-width: 100%; border: 1.5px solid black; margin-top: 20px; border-radius: 4px; }
+    .technical-note { border-left: 4px solid black; padding-left: 15px; font-style: italic; margin: 20px 0; }
+  </style>
+</head>
+<body>
+
+<h1>AURACONNECT</h1>
+<p style="text-align: center;">Software Architecture and Implementation Portfolio for Universal Accessibility</p>
+
+<p>Lead Developer YOUR NAME</p>
+<p>Participant ID YOUR ID NUMBER</p>
+<p>Event Software Development 2026</p>
+<p>System Status Version 3 5 Production Stabilized</p>
+
+<h2>Executive Summary</h2>
+<p>AuraConnect is a cross platform software framework engineered to provide real time spatial awareness and auditory tracking for users with sensory accessibility constraints. Designed with a Client Side First philosophy the application utilizes deterministic mathematical engines to perform high frequency signal analysis directly within the browser environment. This architecture ensures 100 percent data sovereignty zero latency processing and complete availability in environments with no network connectivity.</p>
+
+<h2>Table of Contents</h2>
+<p>Infrastructure and Architecture</p>
+<p>Signal Recognition Engine DSR</p>
+<p>Spatial Awareness and Edge Mapping</p>
+<p>Data Sovereignty and Privacy Protocols</p>
+<p>Engineering Lifecycle Management</p>
+<p>Chronological Engineering Log</p>
+<p>Works Cited MLA 9</p>
+
+<h2>Infrastructure and Architecture</h2>
+<p>The application is built on the React 19 framework utilizing a Vite build pipeline for optimized module bundling. The choice of a browser based stack ensures universal compatibility across desktop and mobile devices without the overhead of native compilation.</p>
+
+<h3>Core Infrastructure Components</h3>
+<p>Low Latency Processing By leveraging the Web Audio API and Canvas API the application performs compute heavy operations such as Fourier Transforms and Pixel to Gradient mappings at 60Hz. This meets the industry standard for real time safety critical responsiveness.</p>
+<p>Progressive Web App PWA Capabilities AuraConnect implements local service workers to ensure that all core logic remains resident in the users local cache This eliminates reliance on remote host availability for users with auditory processing needs in restricted environments</p>
+
+<h2>Signal Recognition Engine DSR</h2>
+<p>The auditory processing layer implements a Digital Signal Recognition pipeline to categorize environmental soundscapes. This is achieved through two distinct mathematical processes including acoustic diarization and signature comparison.</p>
+
+<h3>Acoustic Diarization and Centroid Tracking</h3>
+<p>To differentiate between multiple human speakers for users with hearing impairments the app calculates the Spectral Centroid of the input signal. This represents the center of mass of the frequency spectrum. By applying a Histogram Based Voting System the engine tracks the dominant pitch range over a 1500ms window to assign distinct visual identifiers to different vocal ranges such as Deep Mid and High pitch signatures.</p>
+
+<h3>Signature Comparison via Cosine Similarity</h3>
+<p>For hazard detection such as smoke alarms or SOS signatures the engine converts frequency magnitude data into a standardized vector. It then performs a Cosine Similarity calculation against pre recorded reference fingerprints. The actual code implementation for this signal recognition logic is captured in the following logic view.</p>
+
+<p>INSERT ACOUSTIC RECOGNITION CODE SCREENSHOT HERE</p>
+
+<h2>Spatial Awareness and Edge Mapping</h2>
+<p>For users with visual navigation needs AuraConnect provides a real time Vision Radar. This engine utilizes Deterministic Computer Vision relying on verified mathematical gradients rather than probabilistic machine learning models.</p>
+
+<h3>Gradient Derivation</h3>
+<p>The system first converts the raw 4 channel RGBA camera buffer into a single channel luminosity map using the ITU R BT 601 standard. It then applies a First Order Finite Difference calculation to identify local discontinuities which represent physical edges in the environment. The engineering implementation of this loop is provided below.</p>
+
+<p>INSERT VISION RADAR LOGIC SCREENSHOT HERE</p>
+
+<p>By simplifying the edge detection to only check two specific neighbors the application avoids the O n 2 complexity of larger 3x3 kernels maintaining a consistent 60 FPS on mobile processors.</p>
+
+<h2>Data Sovereignty and Privacy Protocols</h2>
+<p>Universal accessibility requires high levels of user trust. AuraConnect implements a Zero Server Architecture where all data processing is localized.</p>
+<p>Sensitive Data Isolation Microphone data and camera buffers are processed entirely in the applications volatile memory No audio or video streams are ever serialized stored or transmitted over the network This provides an inherent security advantage over standard cloud based accessibility tools</p>
+
+<h2>Engineering Lifecycle Management</h2>
+<p>During the development cycle a critical issue was identified regarding MediaStreamTrack Interference. When switching between auditory and visual modes the browser would preserve the microphone lock preventing the camera from initializing.</p>
+<p>Solution Forced Track Termination I implemented an explicit cleanup pattern that iterates through all active media tracks and closes active AudioContext instances upon component unmount. This ensures hardware stability throughout the user session. The implementation of this lifecycle fix is shown in the logic view below.</p>
+
+<p>INSERT HARDWARE LIFECYCLE LOGIC SCREENSHOT HERE</p>
+
+<h2>Chronological Engineering Log</h2>
+
+<h3>Phase Summary Overview</h3>
+<p>Phases One through Three Research and Feasibility The Brain work</p>
+<p>Phase Four Infrastructure The Setup work</p>
+<p>Phases Five through Eight Core Development The Coding work</p>
+<p>Phases Nine through Ten Hardening and Finalization The Professional work</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Phase</th>
+      <th>Milestone</th>
+      <th>Technical Implementation Outcome</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Phase One</td>
+      <td>Requirement Analysis</td>
+      <td>Defined user personas for auditory processing needs and visual navigation constraints</td>
+    </tr>
+    <tr>
+      <td>Phase Two</td>
+      <td>Algorithm Research</td>
+      <td>Research into Digital Signal Processing DSP and Luminosity weighting BT 601</td>
+    </tr>
+    <tr>
+      <td>Phase Three</td>
+      <td>Benchmarking</td>
+      <td>Validated that 3x3 Sobel kernels exceeded browser compute budgets shifted to finite difference</td>
+    </tr>
+    <tr>
+      <td>Phase Four</td>
+      <td>Environment Setup</td>
+      <td>Initialized Vite build environment with React 19 and concurrent rendering support</td>
+    </tr>
+    <tr>
+      <td>Phase Five</td>
+      <td>Vision Engine Phase</td>
+      <td>Synchronized hardware camera buffers with Canvas API rendering loops</td>
+    </tr>
+    <tr>
+      <td>Phase Six</td>
+      <td>Auditory Engine Phase</td>
+      <td>Implemented FFT based frequency analysis and Cosine Similarity sound recognition</td>
+    </tr>
+    <tr>
+      <td>Phase Seven</td>
+      <td>Data Structure Work</td>
+      <td>Built a custom data structure to serialize hand sign symbols preventing UI flickering</td>
+    </tr>
+    <tr>
+      <td>Phase Eight</td>
+      <td>Interface Integration</td>
+      <td>Developed high contrast themes and voice activated navigation triggers</td>
+    </tr>
+    <tr>
+      <td>Phase Nine</td>
+      <td>Hardware Hardening</td>
+      <td>Developed the Track Termination pattern to resolve cross mode hardware locking issues</td>
+    </tr>
+    <tr>
+      <td>Phase Ten</td>
+      <td>Final Assembly</td>
+      <td>Completed documentation and final production build stabilization</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Works Cited</h2>
+<p>Association for Computing Machinery Digital Image Processing Edge Detection and Gradients Association for Computing Machinery 2020</p>
+
+<p>Audio Engineering Society The Physics of Audio Frequency and Spectral Centroids Audio Engineering Society 2022</p>
+
+<p>International Telecommunication Union Recommendation ITU R BT 601 7 Studio Encoding Parameters of Digital Television for Standard 4 3 and Wide Screen 16 9 Aspect Ratios International Telecommunication Union 2011</p>
+
+<p>Meta Platforms Inc Hooks API Reference React Documentation Meta Platforms Inc 2024</p>
+
+<p>Mozilla Developer Network Web Audio API Mozilla Developer Network Mozilla 2024</p>
+
+<p>United States Census Bureau Anniversary of the Americans with Disabilities Act July 2023 United States Census Bureau 2023</p>
+
+<p>Vite Tools Vite Next Generation Frontend Tooling Vite js 2024</p>
+
+<p>World Wide Web Consortium Web Speech API Specification World Wide Web Consortium 2024</p>
+
+<p>World Wide Web Consortium Universal Accessibility Standards for Client Side Computation World Wide Web Growth Consortium 2024</p>
+
+</body>
+</html>

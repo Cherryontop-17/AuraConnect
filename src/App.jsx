@@ -86,7 +86,7 @@ export default function App() {
           speakFeedback("AuraConnect is a highly optimized accessibility platform built to assist with visual and auditory impairments using deterministic logic.");
         }
         else if (command.includes("who built this") || command.includes("who created")) {
-          speakFeedback("This platform was engineered as an advanced software development project for the TSA competition.");
+          speakFeedback("This platform was engineered by Charishya Yarram for the software development accessibility project.");
         }
         else if (command.includes("how does the radar work") || command.includes("how does the camera work")) {
           speakFeedback("The Vision Radar uses a 1-dimensional mathematical spatial loop to calculate pixel luminosity, actively highlighting physical edges so you don't trip.");
